@@ -5,3 +5,18 @@ services:
 
 before_install:
     - docker build -t yuzeyang/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true yuzeyang/docker-react npm run test
+
+deploy:
+    provider: elasticbeanstalk
+    region: "ap-southeast-2"
+    app: "new"
+    env: "New-env"
+    bucket_name: "elasticbeanstalk-ap-southeast-2-418693809366"
+    bucket_path: "new"
+    on:
+        branch: master
+    access_key_id: "$access_key_id"
+    secret_access_key: "$secret_access_key"
