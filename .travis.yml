@@ -12,10 +12,10 @@ script:
 deploy:
     provider: elasticbeanstalk
     region: "ap-southeast-2"
-    app: "new"
-    env: "New-env"
+    app: "test"
+    env: "Test-env"
     bucket_name: "elasticbeanstalk-ap-southeast-2-418693809366"
-    bucket_path: "new"
+    bucket_path: "test"
     on:
         branch: master
     access_key_id: "$access_key_id"
